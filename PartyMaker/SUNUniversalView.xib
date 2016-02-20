@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SUNUniversalView"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SUNUniversalView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="275"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbO-Fd-1HV">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <color key="backgroundColor" red="0.28627450980392155" green="0.30196078431372547" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="UDB-DR-uvl"/>
+                    </constraints>
+                    <items>
+                        <barButtonItem title="Cancel" id="nlp-QS-Evr">
+                            <connections>
+                                <action selector="onCancelClicked:" destination="iN0-l3-epB" id="PFn-2e-W3j"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="0Lj-Gp-5Ft"/>
+                        <barButtonItem title="Done" style="done" id="aB8-1z-viO">
+                            <connections>
+                                <action selector="onDoneClicked:" destination="iN0-l3-epB" id="3HN-kM-KkT"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="barTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                </toolbar>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9AE-75-NKB">
+                    <rect key="frame" x="0.0" y="44" width="320" height="182"/>
+                    <date key="date" timeIntervalSinceReferenceDate="476822638.84012097">
+                        <!--2016-02-10 18:43:58 +0000-->
+                    </date>
+                </datePicker>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="9AE-75-NKB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AS9-yZ-rSU"/>
+                <constraint firstAttribute="trailing" secondItem="QbO-Fd-1HV" secondAttribute="trailing" id="Dl5-2r-NqJ"/>
+                <constraint firstItem="QbO-Fd-1HV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NpW-Gg-lbX"/>
+                <constraint firstItem="QbO-Fd-1HV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bne-sr-C4G"/>
+                <constraint firstAttribute="trailing" secondItem="9AE-75-NKB" secondAttribute="trailing" id="eFq-lM-xEQ"/>
+                <constraint firstItem="9AE-75-NKB" firstAttribute="top" secondItem="QbO-Fd-1HV" secondAttribute="bottom" id="uSN-dK-Mvj"/>
+                <constraint firstAttribute="bottom" secondItem="9AE-75-NKB" secondAttribute="bottom" constant="49" id="yjO-Uk-ZR6"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="datePicker" destination="9AE-75-NKB" id="ajg-sb-Asx"/>
+            </connections>
+            <point key="canvasLocation" x="430" y="-333.5"/>
+        </view>
+    </objects>
+</document>

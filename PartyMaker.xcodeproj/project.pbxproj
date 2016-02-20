@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		63CA50381C78B8AB008F4CE0 /* SUNParty+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CA50351C78B8AB008F4CE0 /* SUNParty+CoreDataProperties.m */; };
+		63CA50391C78B8AB008F4CE0 /* SUNParty.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CA50371C78B8AB008F4CE0 /* SUNParty.m */; };
+		830A39751C70EB0700753CF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 830A39741C70EB0700753CF1 /* Main.storyboard */; };
+		835592301C733109005CD18C /* SUNPartyMakerSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 8355922F1C733109005CD18C /* SUNPartyMakerSDK.m */; };
+		835BBF191C68B8E600AE844B /* SUNMakingPartyByxibVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 835BBF171C68B8E600AE844B /* SUNMakingPartyByxibVC.m */; };
+		835BBF251C68E83100AE844B /* MyriadProBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 835BBF231C68E83100AE844B /* MyriadProBold.ttf */; };
+		835BBF261C68E83100AE844B /* MyriadProRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 835BBF241C68E83100AE844B /* MyriadProRegular.ttf */; };
+		835BBF2C1C68EBBE00AE844B /* AssetDataBase.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 835BBF2B1C68EBBE00AE844B /* AssetDataBase.xcassets */; };
+		835BBF301C69295B00AE844B /* myLogs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 835BBF2F1C69295B00AE844B /* myLogs.plist */; };
+		835BBF331C69E6AC00AE844B /* SUNSaver.m in Sources */ = {isa = PBXBuildFile; fileRef = 835BBF321C69E6AC00AE844B /* SUNSaver.m */; };
+		836064451C72840200B368DB /* SUNAuthorizationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 836064441C72840200B368DB /* SUNAuthorizationVC.m */; };
+		8391D0AC1C720B82005A21F2 /* SUNLogoImageV.m in Sources */ = {isa = PBXBuildFile; fileRef = 8391D0AB1C720B82005A21F2 /* SUNLogoImageV.m */; };
+		83CA66491C74870900D01B2D /* PartyMaker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83CA66471C74870900D01B2D /* PartyMaker.xcdatamodeld */; };
+		83D64D1D1C6BBB5F000F6321 /* SUNUniversalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D64D1C1C6BBB5F000F6321 /* SUNUniversalView.m */; };
+		83D64D1F1C6BBB8F000F6321 /* SUNUniversalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83D64D1E1C6BBB8F000F6321 /* SUNUniversalView.xib */; };
+		83D64D941C6E307C000F6321 /* SUNDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D64D931C6E307C000F6321 /* SUNDataStore.m */; };
+		83D64D9A1C6F6E97000F6321 /* SUNMenuPatryMakerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D64D991C6F6E97000F6321 /* SUNMenuPatryMakerVC.m */; };
+		83D64D9E1C6F7D71000F6321 /* SUNTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D64D9D1C6F7D71000F6321 /* SUNTableViewCell.m */; };
+		83D64DA11C6FA811000F6321 /* NSDate+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D64DA01C6FA811000F6321 /* NSDate+Utility.m */; };
+		83DA9A941C6A7D6900AF9570 /* Asset Catalog.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83DA9A931C6A7D6900AF9570 /* Asset Catalog.xcassets */; };
+		83EBB4071C6220ED007E3722 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBB4061C6220ED007E3722 /* main.m */; };
+		83EBB40A1C6220ED007E3722 /* SUNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EBB4091C6220ED007E3722 /* SUNAppDelegate.m */; };
+		83EBB4151C6220ED007E3722 /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EBB4131C6220ED007E3722 /* Launchscreen.storyboard */; };
+		83F70DC91C70B41F008BBF94 /* SUNPartyInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F70DC81C70B41F008BBF94 /* SUNPartyInfoVC.m */; };
+		8BD3626C5FFF676ACAAAF913 /* libPods-PartyMaker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8667852EE5A4638B6E10506F /* libPods-PartyMaker.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2778AB9D78B521B692CBEA84 /* Pods-PartyMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyMaker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PartyMaker/Pods-PartyMaker.debug.xcconfig"; sourceTree = "<group>"; };
+		63CA50341C78B8AB008F4CE0 /* SUNParty+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SUNParty+CoreDataProperties.h"; sourceTree = "<group>"; };
+		63CA50351C78B8AB008F4CE0 /* SUNParty+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SUNParty+CoreDataProperties.m"; sourceTree = "<group>"; };
+		63CA50361C78B8AB008F4CE0 /* SUNParty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUNParty.h; sourceTree = "<group>"; };
+		63CA50371C78B8AB008F4CE0 /* SUNParty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUNParty.m; sourceTree = "<group>"; };
+		830A39741C70EB0700753CF1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8355922E1C733109005CD18C /* SUNPartyMakerSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUNPartyMakerSDK.h; sourceTree = "<group>"; };
+		8355922F1C733109005CD18C /* SUNPartyMakerSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUNPartyMakerSDK.m; sourceTree = "<group>"; };
+		835BBF161C68B8E600AE844B /* SUNMakingPartyByxibVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUNMakingPartyByxibVC.h; sourceTree = "<group>"; };
+		835BBF171C68B8E600AE844B /* SUNMakingPartyByxibVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUNMakingPartyByxibVC.m; sourceTree = "<group>"; };
+		835BBF231C68E83100AE844B /* MyriadProBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyriadProBold.ttf; sourceTree = "<group>"; };
+		835BBF241C68E83100AE844B /* MyriadProRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyriadProRegular.ttf; sourceTree = "<group>"; };
+		835BBF2B1C68EBBE00AE844B /* AssetDataBase.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetDataBase.xcassets; sourceTree = "<group>"; };
+		835BBF2F1C69295B00AE844B /* myLogs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = myLogs.plist; sourceTree = "<group>"; };
+		835BBF311C69E6AC00AE844B /* SUNSaver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUNSaver.h; sourceTree = "<group>"; };
+		835BBF321C69E6AC00AE844B /* SUNSaver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUNSaver.m; sourceTree = "<group>"; };
+		836064431C72840200B368DB /* SUNAuthorizationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUNAuthorizationVC.h; sourceTree = "<group>"; };
+		836064441C72840200B368DB /* SUNAuthorizationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUNAuthorizationVC.m; sourceTree = "<group>"; };
+		8391D0AA1C720B82005A21F2 /* SUNLogoImageV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUNLogoImageV.h; sourceTree = "<group>"; };
+		8391D0AB1C720B82005A21F2 /* SUNLogoImageV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUNLogoImageV.m; sourceTree = "<group>"; };
+		83CA66481C74870900D01B2D /* PartyMaker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PartyMaker.xcdatamodel; sourceTree = "<group>"; };
+		83D64D1B1C6BBB5F000F6321 /* SUNUniversalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUNUniversalView.h; sourceTree = "<group>"; };
+		83D64D1C1C6BBB5F000F6321 /* SUNUniversalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUNUniversalView.m; sourceTree = "<group>"; };
+		83D64D1E1C6BBB8F000F6321 /* SUNUniversalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SUNUniversalView.xib; sourceTree = "<group>"; };
+		83D64D921C6E307C000F6321 /* SUNDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUNDataStore.h; sourceTree = "<group>"; };
+		83D64D931C6E307C000F6321 /* SUNDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUNDataStore.m; sourceTree = "<group>"; };
+		83D64D981C6F6E97000F6321 /* SUNMenuPatryMakerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUNMenuPatryMakerVC.h; sourceTree = "<group>"; };
+		83D64D991C6F6E97000F6321 /* SUNMenuPatryMakerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUNMenuPatryMakerVC.m; sourceTree = "<group>"; };
+		83D64D9C1C6F7D71000F6321 /* SUNTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUNTableViewCell.h; sourceTree = "<group>"; };
+		83D64D9D1C6F7D71000F6321 /* SUNTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUNTableViewCell.m; sourceTree = "<group>"; };
+		83D64D9F1C6FA811000F6321 /* NSDate+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utility.h"; sourceTree = "<group>"; };
+		83D64DA01C6FA811000F6321 /* NSDate+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utility.m"; sourceTree = "<group>"; };
+		83DA9A931C6A7D6900AF9570 /* Asset Catalog.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Asset Catalog.xcassets"; path = "../Asset Catalog.xcassets"; sourceTree = "<group>"; };
+		83EBB4021C6220ED007E3722 /* PartyMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83EBB4061C6220ED007E3722 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83EBB4081C6220ED007E3722 /* SUNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUNAppDelegate.h; sourceTree = "<group>"; };
+		83EBB4091C6220ED007E3722 /* SUNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUNAppDelegate.m; sourceTree = "<group>"; };
+		83EBB4141C6220ED007E3722 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launchscreen.storyboard; sourceTree = "<group>"; };
+		83EBB4161C6220ED007E3722 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83F70DC71C70B41F008BBF94 /* SUNPartyInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUNPartyInfoVC.h; sourceTree = "<group>"; };
+		83F70DC81C70B41F008BBF94 /* SUNPartyInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUNPartyInfoVC.m; sourceTree = "<group>"; };
+		8667852EE5A4638B6E10506F /* libPods-PartyMaker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PartyMaker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAA375648BA8546EBA308213 /* Pods-PartyMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyMaker.release.xcconfig"; path = "Pods/Target Support Files/Pods-PartyMaker/Pods-PartyMaker.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83EBB3FF1C6220ED007E3722 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BD3626C5FFF676ACAAAF913 /* libPods-PartyMaker.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		240F6B3656355739ABA888B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8667852EE5A4638B6E10506F /* libPods-PartyMaker.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8391D0A91C720ADE005A21F2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				83A35CD21C735AA900CDAE15 /* ViewControllers */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		83A35CD11C735A9400CDAE15 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				83EBB4081C6220ED007E3722 /* SUNAppDelegate.h */,
+				83EBB4091C6220ED007E3722 /* SUNAppDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		83A35CD21C735AA900CDAE15 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				83CA66C01C75BBB200D01B2D /* AuthorizationVC */,
+				83A35CD51C73A5E100CDAE15 /* TableMenuVC */,
+				83A35CD31C73A59000CDAE15 /* InfoPartyVC */,
+				83A35CD41C73A5A900CDAE15 /* CreateEditPartyVC */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		83A35CD31C73A59000CDAE15 /* InfoPartyVC */ = {
+			isa = PBXGroup;
+			children = (
+				83F70DC71C70B41F008BBF94 /* SUNPartyInfoVC.h */,
+				83F70DC81C70B41F008BBF94 /* SUNPartyInfoVC.m */,
+				83D64D201C6BBB9E000F6321 /* LogoView */,
+			);
+			name = InfoPartyVC;
+			sourceTree = "<group>";
+		};
+		83A35CD41C73A5A900CDAE15 /* CreateEditPartyVC */ = {
+			isa = PBXGroup;
+			children = (
+				835BBF161C68B8E600AE844B /* SUNMakingPartyByxibVC.h */,
+				835BBF171C68B8E600AE844B /* SUNMakingPartyByxibVC.m */,
+				83DB9E111C77784200DE200B /* PickerView */,
+			);
+			name = CreateEditPartyVC;
+			sourceTree = "<group>";
+		};
+		83A35CD51C73A5E100CDAE15 /* TableMenuVC */ = {
+			isa = PBXGroup;
+			children = (
+				83D64D981C6F6E97000F6321 /* SUNMenuPatryMakerVC.h */,
+				83D64D991C6F6E97000F6321 /* SUNMenuPatryMakerVC.m */,
+				83D64D9B1C6F7D07000F6321 /* SUNTableViewCell */,
+			);
+			name = TableMenuVC;
+			sourceTree = "<group>";
+		};
+		83CA66961C751DC000D01B2D /* SavingByPlist */ = {
+			isa = PBXGroup;
+			children = (
+				835BBF311C69E6AC00AE844B /* SUNSaver.h */,
+				835BBF321C69E6AC00AE844B /* SUNSaver.m */,
+			);
+			name = SavingByPlist;
+			sourceTree = "<group>";
+		};
+		83CA66C01C75BBB200D01B2D /* AuthorizationVC */ = {
+			isa = PBXGroup;
+			children = (
+				836064431C72840200B368DB /* SUNAuthorizationVC.h */,
+				836064441C72840200B368DB /* SUNAuthorizationVC.m */,
+			);
+			name = AuthorizationVC;
+			sourceTree = "<group>";
+		};
+		83CA66C11C75C54500D01B2D /* NetworkingControl */ = {
+			isa = PBXGroup;
+			children = (
+				8355922E1C733109005CD18C /* SUNPartyMakerSDK.h */,
+				8355922F1C733109005CD18C /* SUNPartyMakerSDK.m */,
+			);
+			name = NetworkingControl;
+			sourceTree = "<group>";
+		};
+		83D64D201C6BBB9E000F6321 /* LogoView */ = {
+			isa = PBXGroup;
+			children = (
+				8391D0AA1C720B82005A21F2 /* SUNLogoImageV.h */,
+				8391D0AB1C720B82005A21F2 /* SUNLogoImageV.m */,
+			);
+			name = LogoView;
+			sourceTree = "<group>";
+		};
+		83D64D971C6F6AEE000F6321 /* DataStoreControl */ = {
+			isa = PBXGroup;
+			children = (
+				63CA50341C78B8AB008F4CE0 /* SUNParty+CoreDataProperties.h */,
+				63CA50351C78B8AB008F4CE0 /* SUNParty+CoreDataProperties.m */,
+				63CA50361C78B8AB008F4CE0 /* SUNParty.h */,
+				63CA50371C78B8AB008F4CE0 /* SUNParty.m */,
+				83D64D921C6E307C000F6321 /* SUNDataStore.h */,
+				83D64D931C6E307C000F6321 /* SUNDataStore.m */,
+			);
+			name = DataStoreControl;
+			sourceTree = "<group>";
+		};
+		83D64D9B1C6F7D07000F6321 /* SUNTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				83D64D9C1C6F7D71000F6321 /* SUNTableViewCell.h */,
+				83D64D9D1C6F7D71000F6321 /* SUNTableViewCell.m */,
+			);
+			name = SUNTableViewCell;
+			sourceTree = "<group>";
+		};
+		83D64DA21C6FA840000F6321 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				83D64D9F1C6FA811000F6321 /* NSDate+Utility.h */,
+				83D64DA01C6FA811000F6321 /* NSDate+Utility.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		83DB9E101C7777F900DE200B /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				83CA66C11C75C54500D01B2D /* NetworkingControl */,
+				83D64D971C6F6AEE000F6321 /* DataStoreControl */,
+				83CA66961C751DC000D01B2D /* SavingByPlist */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		83DB9E111C77784200DE200B /* PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				83D64D1B1C6BBB5F000F6321 /* SUNUniversalView.h */,
+				83D64D1C1C6BBB5F000F6321 /* SUNUniversalView.m */,
+				83D64D1E1C6BBB8F000F6321 /* SUNUniversalView.xib */,
+			);
+			name = PickerView;
+			sourceTree = "<group>";
+		};
+		83EBB3F91C6220ED007E3722 = {
+			isa = PBXGroup;
+			children = (
+				83EBB4041C6220ED007E3722 /* PartyMaker */,
+				83EBB4031C6220ED007E3722 /* Products */,
+				FFE041A9A0585A02E06F5CF0 /* Pods */,
+				240F6B3656355739ABA888B3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		83EBB4031C6220ED007E3722 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83EBB4021C6220ED007E3722 /* PartyMaker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83EBB4041C6220ED007E3722 /* PartyMaker */ = {
+			isa = PBXGroup;
+			children = (
+				835BBF2B1C68EBBE00AE844B /* AssetDataBase.xcassets */,
+				83DA9A931C6A7D6900AF9570 /* Asset Catalog.xcassets */,
+				835BBF231C68E83100AE844B /* MyriadProBold.ttf */,
+				835BBF241C68E83100AE844B /* MyriadProRegular.ttf */,
+				83A35CD11C735A9400CDAE15 /* Application */,
+				8391D0A91C720ADE005A21F2 /* Views */,
+				83F70DCA1C70BD1D008BBF94 /* Models */,
+				83DB9E101C7777F900DE200B /* Controls */,
+				83EBB4051C6220ED007E3722 /* Supporting Files */,
+				83D64DA21C6FA840000F6321 /* Utility */,
+			);
+			path = PartyMaker;
+			sourceTree = "<group>";
+		};
+		83EBB4051C6220ED007E3722 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83CA66471C74870900D01B2D /* PartyMaker.xcdatamodeld */,
+				83EBB4131C6220ED007E3722 /* Launchscreen.storyboard */,
+				830A39741C70EB0700753CF1 /* Main.storyboard */,
+				835BBF2F1C69295B00AE844B /* myLogs.plist */,
+				83EBB4161C6220ED007E3722 /* Info.plist */,
+				83EBB4061C6220ED007E3722 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83F70DCA1C70BD1D008BBF94 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FFE041A9A0585A02E06F5CF0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2778AB9D78B521B692CBEA84 /* Pods-PartyMaker.debug.xcconfig */,
+				DAA375648BA8546EBA308213 /* Pods-PartyMaker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83EBB4011C6220ED007E3722 /* PartyMaker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83EBB42F1C6220ED007E3722 /* Build configuration list for PBXNativeTarget "PartyMaker" */;
+			buildPhases = (
+				12AA34DA743D5A52B8ED930F /* Check Pods Manifest.lock */,
+				83EBB3FE1C6220ED007E3722 /* Sources */,
+				83EBB3FF1C6220ED007E3722 /* Frameworks */,
+				83EBB4001C6220ED007E3722 /* Resources */,
+				BB190688EC55F9FB68B6432D /* Embed Pods Frameworks */,
+				E689BEBAB156CFD439B9A8C8 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PartyMaker;
+			productName = PartyMaker;
+			productReference = 83EBB4021C6220ED007E3722 /* PartyMaker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83EBB3FA1C6220ED007E3722 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = TonyStar;
+				TargetAttributes = {
+					83EBB4011C6220ED007E3722 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 83EBB3FD1C6220ED007E3722 /* Build configuration list for PBXProject "PartyMaker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83EBB3F91C6220ED007E3722;
+			productRefGroup = 83EBB4031C6220ED007E3722 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83EBB4011C6220ED007E3722 /* PartyMaker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83EBB4001C6220ED007E3722 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83EBB4151C6220ED007E3722 /* Launchscreen.storyboard in Resources */,
+				835BBF301C69295B00AE844B /* myLogs.plist in Resources */,
+				83DA9A941C6A7D6900AF9570 /* Asset Catalog.xcassets in Resources */,
+				830A39751C70EB0700753CF1 /* Main.storyboard in Resources */,
+				835BBF261C68E83100AE844B /* MyriadProRegular.ttf in Resources */,
+				835BBF251C68E83100AE844B /* MyriadProBold.ttf in Resources */,
+				835BBF2C1C68EBBE00AE844B /* AssetDataBase.xcassets in Resources */,
+				83D64D1F1C6BBB8F000F6321 /* SUNUniversalView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12AA34DA743D5A52B8ED930F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB190688EC55F9FB68B6432D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PartyMaker/Pods-PartyMaker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E689BEBAB156CFD439B9A8C8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PartyMaker/Pods-PartyMaker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83EBB3FE1C6220ED007E3722 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83D64D9A1C6F6E97000F6321 /* SUNMenuPatryMakerVC.m in Sources */,
+				83D64D1D1C6BBB5F000F6321 /* SUNUniversalView.m in Sources */,
+				83CA66491C74870900D01B2D /* PartyMaker.xcdatamodeld in Sources */,
+				835BBF331C69E6AC00AE844B /* SUNSaver.m in Sources */,
+				836064451C72840200B368DB /* SUNAuthorizationVC.m in Sources */,
+				8391D0AC1C720B82005A21F2 /* SUNLogoImageV.m in Sources */,
+				83EBB40A1C6220ED007E3722 /* SUNAppDelegate.m in Sources */,
+				83F70DC91C70B41F008BBF94 /* SUNPartyInfoVC.m in Sources */,
+				835BBF191C68B8E600AE844B /* SUNMakingPartyByxibVC.m in Sources */,
+				83D64D941C6E307C000F6321 /* SUNDataStore.m in Sources */,
+				63CA50381C78B8AB008F4CE0 /* SUNParty+CoreDataProperties.m in Sources */,
+				63CA50391C78B8AB008F4CE0 /* SUNParty.m in Sources */,
+				83D64D9E1C6F7D71000F6321 /* SUNTableViewCell.m in Sources */,
+				835592301C733109005CD18C /* SUNPartyMakerSDK.m in Sources */,
+				83D64DA11C6FA811000F6321 /* NSDate+Utility.m in Sources */,
+				83EBB4071C6220ED007E3722 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		83EBB4131C6220ED007E3722 /* Launchscreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83EBB4141C6220ED007E3722 /* Base */,
+			);
+			name = Launchscreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83EBB42D1C6220ED007E3722 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		83EBB42E1C6220ED007E3722 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		83EBB4301C6220ED007E3722 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2778AB9D78B521B692CBEA84 /* Pods-PartyMaker.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = PartyMaker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TS.PartyMaker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		83EBB4311C6220ED007E3722 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAA375648BA8546EBA308213 /* Pods-PartyMaker.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = PartyMaker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TS.PartyMaker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83EBB3FD1C6220ED007E3722 /* Build configuration list for PBXProject "PartyMaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83EBB42D1C6220ED007E3722 /* Debug */,
+				83EBB42E1C6220ED007E3722 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83EBB42F1C6220ED007E3722 /* Build configuration list for PBXNativeTarget "PartyMaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83EBB4301C6220ED007E3722 /* Debug */,
+				83EBB4311C6220ED007E3722 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		83CA66471C74870900D01B2D /* PartyMaker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				83CA66481C74870900D01B2D /* PartyMaker.xcdatamodel */,
+			);
+			currentVersion = 83CA66481C74870900D01B2D /* PartyMaker.xcdatamodel */;
+			path = PartyMaker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 83EBB3FA1C6220ED007E3722 /* Project object */;
+}
