@@ -53,8 +53,8 @@
 #warning connectrion for network
 //    [self getAllPartyRequest];
 #warning connection for coreData
-        [self getPartyFromCoreData];
-    
+    [self getPartyFromCoreData];
+    NSLog(@"mainContext was first");
     //Loading all parties from file all times when viewAppears (need to load all files ones and then save and edit only selected party)
    // self.dataArray = [SUNDataStore readFromPlist];
 }
@@ -72,11 +72,17 @@
     [fetchRequest setEntity:entity];
     
     NSArray *fetchedObjects = [self.context executeFetchRequest:fetchRequest error:&error];
+    
     for (SUNParty *info in fetchedObjects) {
         [self.usersPartyArray addObject:info];
     }
-    self.dataArray = [self.usersPartyArray copy];
     
+    if( self.dataArray.count != fetchedObjects.count ){
+        self.dataArray = [self.usersPartyArray copy];
+        [self.partyTableView reloadData];
+    }
+    self.usersPartyArray = nil;
+    NSLog(@"%lu", (unsigned long)self.dataArray.count);
 }
 
 #pragma mark - Custom Methods Networking
