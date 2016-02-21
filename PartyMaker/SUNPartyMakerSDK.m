@@ -141,6 +141,7 @@ NSString *APIURLLink = @"http://itworksinua.km.ua/party";
     
     if (partyId || ![partyId isEqualToString:@""]) {
         [mutableParameters setValue:partyId forKey:@"party_id"];
+        NSLog(@"party is going to edit server party with id %@", partyId);
     }
     
     

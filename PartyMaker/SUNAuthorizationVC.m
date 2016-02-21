@@ -127,7 +127,7 @@
         [[NSUserDefaults standardUserDefaults] setObject: @([newId intValue]) forKey:@"userId"];
         [[NSUserDefaults standardUserDefaults] setObject:localResponse[@"email"] forKey:@"userName"];
         [[NSUserDefaults standardUserDefaults] setObject:localResponse[@"name"] forKey:@"userEmail"];
-        
+
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         NSLog(@"was loged");

@@ -48,6 +48,7 @@
 
 #pragma mark - Core Data stack
 
+@synthesize backgroundThreadContext = _backgroundThreadContext;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -93,6 +94,24 @@
     }
     
     return _persistentStoreCoordinator;
+}
+
+-(NSManagedObjectContext *)backgroundThreadContext{
+    
+    if ( _backgroundThreadContext != nil ){
+        return _backgroundThreadContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if(!coordinator){
+        return nil;
+    }
+    
+    
+    _backgroundThreadContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    _backgroundThreadContext.parentContext = _managedObjectContext;
+    
+    return _backgroundThreadContext;
 }
 
 

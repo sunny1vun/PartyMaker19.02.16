@@ -6,6 +6,7 @@
 //  Copyright © 2016 TonyStar. All rights reserved.
 //
 
+#import "SUNAppDelegate.h"
 #import "SUNMakingPartyByxibVC.h"
 #import "SUNUniversalView.h"
 #import "SUNDataStore.h"
@@ -59,7 +60,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +69,11 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+    self.context = [MyDelegate managedObjectContext];
+    
+    self.backgroundContext = [MyDelegate backgroundThreadContext];
+    
     [super viewWillAppear:NO];
     
     [self.view layoutIfNeeded];
@@ -99,7 +105,7 @@
         
         NSLog(@"partyModel fro dataCore and Networking is reused");
         //preparing startTime and endTime
-        NSDate *dateOfParty = [NSDate dateWithTimeIntervalSince1970:self.partyToChange.startTime.doubleValue];
+        NSDate *dateOfParty = [NSDate dateWithTimeIntervalSince1970:self.partyToChange.startTime];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"dd.MM.yyyy"];
         
@@ -110,19 +116,19 @@
         //it's for all
         self.dateIsChosen = dateOfPartyInString;
         
-        [self.textField setText:self.partyToChange.nameOfParty];
+        [self.textField setText:self.partyToChange.partyName];
         [dateFormat setDateFormat:@"HH:mm"];
-        dateOfParty = [NSDate dateWithTimeIntervalSince1970:self.partyToChange.startTime.doubleValue];
+        dateOfParty = [NSDate dateWithTimeIntervalSince1970:self.partyToChange.startTime];
         CGFloat minutes = [self numberOfMinutesInHoursAndMinutes:[dateFormat stringFromDate:dateOfParty]];
         [self.sliderTop setValue:minutes];
         [self.labelOfTopSlider setText:[self textFromValueOfSlider:self.sliderTop]];
         
-        dateOfParty = [NSDate dateWithTimeIntervalSince1970:self.partyToChange.endTime.doubleValue];
+        dateOfParty = [NSDate dateWithTimeIntervalSince1970:self.partyToChange.endTime];
         minutes = [self numberOfMinutesInHoursAndMinutes:[dateFormat stringFromDate:dateOfParty]];
         [self.sliderBot setValue:minutes];
         [self.labelOfBottomSlider setText:[self textFromValueOfSlider:self.sliderBot]];
         
-        [self.pageControl setCurrentPage:self.partyToChange.logo.doubleValue];
+        [self.pageControl setCurrentPage:self.partyToChange.logo];
         CGPoint contentOffset = (CGPoint){self.scrollView.frame.size.width * self.pageControl.currentPage, 0};
         [self.scrollView setContentOffset:contentOffset];
         
@@ -551,7 +557,6 @@
         
         
         //new party Model for coreData and Network
-        NSNumber *numberJustForUsage = [[NSNumber alloc] initWithInt:64];
     
         
         //preparing startTime and endTime in creating mode
@@ -613,31 +618,54 @@
         NSNumber * userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
 
         //in editing mode i need to fill party by self.partyToChange
-        SUNSaver *party = [[SUNSaver sharedInstance] initWithCreatorId: userId startTime:startTime endTime:endTime logo:[[NSNumber alloc] initWithInteger:self.pageControl.currentPage] partyId:numberJustForUsage latitude:numberJustForUsage longitude:numberJustForUsage description:self.textView.text partyName:self.textField.text];
+//        SUNSaver *party = [[SUNSaver sharedInstance] initWithCreatorId: userId startTime:startTime endTime:endTime logo:[[NSNumber alloc] initWithInteger:self.pageControl.currentPage] partyId:numberJustForUsage latitude:numberJustForUsage longitude:numberJustForUsage description:self.textView.text partyName:self.textField.text];
         
-        
-        NSNumber *uniqId = nil;
-        
+        NSDictionary *dictionaryOfParty;
+        SUNParty *party;
+//        BOOL (^makeChangesInCoreData)(parameterTypes);// = ^BOOL(parameters) {...};
+
+//        NSNumber *partyIdIfExist;
         if ( self.partyWasEdited ) {
-            //parties = [SUNDataStore readFromPlist];
-            //working code but with plist
-            //no its withot plist
-//            party = self.partyToChange;
-           // NSData *dataParty = [NSKeyedArchiver archivedDataWithRootObject:party];
-            //here i need to check if party in array at indexOfPartyToChange is equal to edtiting party (if it's not equal than ok, save it )
-            //not nessesery
-            //[parties removeObjectAtIndex:self.indexOfPartyToChange];
-            //[parties insertObject:dataParty atIndex:self.indexOfPartyToChange];
-           // NSLog(@"data of party was added to parties");
-            uniqId = self.partyToChange.partyId;
+#warning here is editing mode is active
+
+           party = self.partyToChange;
+//            partyIdIfExist = @(self.partyToChange.partyId);
            
         
         }else{
-            parties = [SUNDataStore readFromPlist];
+//#warning latitude and longitude are taking wrong values here
             
-            NSData *dataParty = [NSKeyedArchiver archivedDataWithRootObject:party];
             
-            [parties addObject:dataParty];
+            
+//            NSString *newId = localResponse[@"id"];
+//            [[NSUserDefaults standardUserDefaults] setObject: @([newId intValue]) forKey:@"userId"];
+            
+            
+            dictionaryOfParty =  @{@"name": self.textField.text,
+                                   @"start_time": startTime,
+                                   @"end_time": endTime,
+                                   @"logo_id": @(self.pageControl.currentPage),
+                                   @"comment": self.textView.text,
+                                   @"creator_id": [userId stringValue],
+                                   @"latitude": startTime,
+                                   @"longitude": endTime,
+                                   };
+            
+            SUNParty *sunPartyItem = [NSEntityDescription
+             insertNewObjectForEntityForName:@"SUNParty"
+             inManagedObjectContext:self.backgroundContext];
+            
+            party = [sunPartyItem makePartyObjectWith:dictionaryOfParty];
+            party.hasChanged = YES;
+            if( party.hasChanged ){
+                NSLog(@"has Changes %d", party.hasChanged);
+                NSError *localError;
+                if(![self.backgroundContext save:&localError]){
+                    NSLog(@"local error from backgroundContext %@", localError);
+                }
+            }
+//            party = [ makePartyObjectWith:dictionaryOfParty];
+            
         }
         
         //[SUNDataStore saveToPlist:parties];
@@ -650,21 +678,26 @@
         //but it runs in another class-controller (Controls/Networking/SUNPartyMakerSDK) in runtime (когда оно заапущено короче с симулятора, в данном случае)
         //in that block class-cotroller transit parameters (*response, *error) which appears phisicly here only when i'm triggering them in class-controller
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        [[SUNPartyMakerSDK sharedInstance] addPartyWithId:uniqId.stringValue
-                                                     name:party.nameOfParty
-                                                startTime:party.startTime.stringValue
-                                                  endTime:party.endTime.stringValue
-                                                   logoId:party.logo.stringValue
+        [[SUNPartyMakerSDK sharedInstance] addPartyWithId:[@(party.partyId) stringValue]
+                                                     name:party.partyName
+                                                startTime:[@(party.startTime) stringValue]
+                                                  endTime:[@(party.endTime) stringValue]
+                                                   logoId:[@(party.logo) stringValue]
                                                   comment:party.comment
-                                                creatorId:userId.stringValue
-                                                 latitude:party.startTime.stringValue
-                                                longitude:party.startTime.stringValue
+                                                creatorId:[@(party.creatorId) stringValue]
+                                                 latitude:[@(party.startTime) stringValue]
+                                                longitude:[@(party.startTime) stringValue]
                                                  callback:^(NSDictionary *response, NSError *error){
 
          dispatch_async(dispatch_get_main_queue(),^{
              BOOL authorized = [weakSelf savedOnServer:response];
              if ( authorized ) {
-                 [SUNDataStore saveToPlist:parties];
+//                 [SUNDataStore saveToPlist:parties];
+                 
+                 NSError *error;
+                 if (![weakSelf.context save:&error]) {
+                     NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+                 }
                  NSLog(@"good response from server");
              }else{
                  NSLog(@"bad response from server");
@@ -675,6 +708,15 @@
         }];
         
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
 }
@@ -702,7 +744,7 @@
 
     }
     
-    return YES;
+    return NO;
 }
 
 

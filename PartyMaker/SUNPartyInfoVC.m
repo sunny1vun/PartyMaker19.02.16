@@ -38,17 +38,17 @@
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
-    NSDate *dateOfParty = [NSDate dateWithTimeIntervalSince1970:self.selectedParty.startTime.doubleValue];
+    NSDate *dateOfParty = [NSDate dateWithTimeIntervalSince1970:self.selectedParty.startTime];
     NSString *dateOfSelectedParty = [dateFormat stringFromDate:dateOfParty];
     
-    NSString *nameOfSelectedParty = self.selectedParty.nameOfParty;
+    NSString *nameOfSelectedParty = self.selectedParty.partyName;
     
     [dateFormat setDateFormat:@"HH:mm"];
-    NSString *startTime = [dateFormat stringFromDate:[NSDate dateWithTimeIntervalSince1970: self.selectedParty.startTime.doubleValue ]];
-    NSString *endTime = [dateFormat stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.selectedParty.endTime.doubleValue]];
+    NSString *startTime = [dateFormat stringFromDate:[NSDate dateWithTimeIntervalSince1970: self.selectedParty.startTime]];
+    NSString *endTime = [dateFormat stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.selectedParty.endTime]];
     
     NSString *comment = self.selectedParty.comment;
-    UIImage *logoImage = [UIImage imageNamed:[NSString stringWithFormat:@"PartyLogo_Small_%d", self.selectedParty.logo.intValue]];
+    UIImage *logoImage = [UIImage imageNamed:[NSString stringWithFormat:@"PartyLogo_Small_%lld", self.selectedParty.logo]];
     
     //filing UI with new model for coreData and network
 
@@ -95,7 +95,7 @@
     
     if( [segue.identifier isEqualToString:@"toEditParty"] ){
         
-        NSLog(@"going to edit party %@ %li", self.selectedParty.nameOfParty, (long)self.indexOfSelectedParty);
+        NSLog(@"going to edit party %@ %li", self.selectedParty.partyName, (long)self.indexOfSelectedParty);
         
         SUNMakingPartyByxibVC *editParty = segue.destinationViewController;
         

@@ -2,16 +2,40 @@
 //  SUNParty.m
 //  PartyMaker
 //
-//  Created by Vlad Sydorenko on 2/20/16.
+//  Created by Tony on 2/20/16.
 //  Copyright © 2016 TonyStar. All rights reserved.
 //
 
 #import "SUNParty.h"
-
+#import "SUNAppDelegate.h"
 @implementation SUNParty
 
 // Insert code here to add functionality to your managed object subclass
+
+@synthesize backgroundThreadContext= _backgroundThreadContext;
+@synthesize hasChanged = _hasChanged;
+
+-(NSManagedObjectContext *)backgroundThreadContext{
+
+    if(_backgroundThreadContext != nil){
+        return _backgroundThreadContext;
+    }
+    
+//    if(_hasChanged){
+//        NSLog(@"party in coreData hasChanges");
+//    }
+    
+    _backgroundThreadContext = [MyDelegate backgroundThreadContext];
+    return _backgroundThreadContext;
+}
+
+-(BOOL)hasChanged{
+    
+    return _hasChanged;
+}
+
 - (instancetype) makePartyObjectWith:(NSDictionary *) parameters{
+    
     
     self.creatorId = [[parameters objectForKey:@"creator_id"] intValue];
     self.partyId = [[parameters objectForKey:@"id"] intValue];

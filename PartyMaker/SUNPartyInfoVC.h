@@ -12,7 +12,8 @@
 
 @interface SUNPartyInfoVC : UIViewController
 
-@property (nonatomic, strong) SUNSaver  *selectedParty;
+//@property (nonatomic, strong) SUNSaver  *selectedParty;
+@property (nonatomic, strong) SUNParty  *selectedParty;
 @property (nonatomic) NSInteger indexOfSelectedParty;
 
 @end

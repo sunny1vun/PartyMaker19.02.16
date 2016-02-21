@@ -29,11 +29,10 @@
 
     NSLog(@"TableView was first");
     self.context = [MyDelegate managedObjectContext];
-    [self getAllPartyRequest];
-#warning connection for coreData
-//    [self getPartyFromCoreData];
+    
+
   
-//    
+//
 //    SUNParty *sunPartyItem = [NSEntityDescription
 //                                       insertNewObjectForEntityForName:@"SUNParty"
 //                                       inManagedObjectContext:self.context];
@@ -50,8 +49,12 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   // [self getAllPartyRequest];
-
+    
+#warning connectrion for network
+//    [self getAllPartyRequest];
+#warning connection for coreData
+        [self getPartyFromCoreData];
+    
     //Loading all parties from file all times when viewAppears (need to load all files ones and then save and edit only selected party)
    // self.dataArray = [SUNDataStore readFromPlist];
 }
@@ -59,7 +62,7 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
 }
-#pragma mark - Custom Methods
+#pragma mark - Custom Methods CoreData
 -(void) getPartyFromCoreData {
     
     NSError *error;
@@ -76,6 +79,7 @@
     
 }
 
+#pragma mark - Custom Methods Networking
 -(void) getAllPartyRequest{
 
     NSNumber *userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
@@ -106,6 +110,7 @@
                     if (!error) {
                         self.dataArray = [parsedArray copy];
                         [self.partyTableView reloadData];
+                        
 
                     }
                     
@@ -227,7 +232,7 @@
     
     NSLog(@"On row %ld was touched", (long)indexPath.row);
     
-    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 
@@ -243,16 +248,8 @@
         
         self.indexOfSelectedCell = [self.partyTableView indexPathForSelectedRow].row;
         
-        
-        
-        
-        
-        
-        
-        SUNSaver *selectedParty = self.dataArray[self.indexOfSelectedCell];
-        
-//        SUNParty *selectedParty = self.dataArray[self.indexOfSelectedCell];
-
+        SUNParty *selectedParty = self.dataArray[self.indexOfSelectedCell];
+        NSLog(@"id of selectedParty = %lld", selectedParty.partyId);
         partyInfoVC.selectedParty = selectedParty;
         partyInfoVC.indexOfSelectedParty = self.indexOfSelectedCell;
         

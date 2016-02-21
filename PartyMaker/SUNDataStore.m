@@ -73,7 +73,7 @@
     
     NSString *partiesFilePathInDocuments = [documentPath stringByAppendingPathComponent:@"myLogs.plist"];
     NSString *partiesFilePathInBundle = [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/myLogs.plist"];
-        NSLog(@"%@",partiesFilePathInDocuments);
+//        NSLog(@"%@",partiesFilePathInDocuments);
 //    NSMutableArray *dataFromFile = [[NSMutableArray alloc] init];
     
     if( ![filemanager fileExistsAtPath: partiesFilePathInDocuments] ){

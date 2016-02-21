@@ -10,10 +10,15 @@
 #import "SUNPartyInfoVC.h"
 #import "SUNParty.h"
 
-@interface SUNMakingPartyByxibVC : UIViewController 
+@interface SUNMakingPartyByxibVC : UIViewController <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, strong) SUNSaver *partyToChange;
+//@property (nonatomic, strong) SUNSaver *partyToChange;
+@property (nonatomic, strong) SUNParty *partyToChange;
 @property (nonatomic) NSInteger indexOfPartyToChange;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *context;
+@property (strong, nonatomic) NSManagedObjectContext *backgroundContext;
+
 
 -(NSString *)textFromValueOfSlider:(UISlider*)slider;
 -(CGFloat)numberOfMinutesInHoursAndMinutes:(NSString *) time;
