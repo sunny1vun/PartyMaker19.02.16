@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fEy-7e-Htv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fEy-7e-Htv">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -65,7 +65,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ucm-WD-kQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-414" y="628"/>
+            <point key="canvasLocation" x="-170" y="626"/>
         </scene>
         <!--Starting View-->
         <scene sceneID="oxL-Ka-bWS">
@@ -95,7 +95,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzU-xA-sRQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="624" y="-81"/>
+            <point key="canvasLocation" x="868" y="-83"/>
         </scene>
         <!--CREATE PARTY-->
         <scene sceneID="545-hK-tUz">
@@ -534,7 +534,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="242-cR-n0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421" y="-81"/>
+            <point key="canvasLocation" x="2665" y="-83"/>
         </scene>
         <!--PARTY MAKER-->
         <scene sceneID="UyR-LD-5z6">
@@ -609,7 +609,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jG-qF-RoF">
-                                                    <rect key="frame" x="134.5" y="22" width="51.5" height="25.5"/>
+                                                    <rect key="frame" x="135" y="22" width="52" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -659,7 +659,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tHQ-6d-6Kt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211" y="-81"/>
+            <point key="canvasLocation" x="1455" y="-83"/>
         </scene>
         <!--PARTY INFO-->
         <scene sceneID="3JF-6L-PN4">
@@ -704,7 +704,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFr-Kb-ylA" userLabel="description">
-                                                                <rect key="frame" x="125" y="156" width="27.5" height="12"/>
+                                                                <rect key="frame" x="125" y="156" width="28" height="12"/>
                                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -953,7 +953,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYi-5T-Hkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1803" y="307"/>
+            <point key="canvasLocation" x="2047" y="305"/>
         </scene>
         <!--LOGIN IN PARTY-->
         <scene sceneID="HJS-DA-PCR">
@@ -1067,7 +1067,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xb4-7Y-VtT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-414" y="-40"/>
+            <point key="canvasLocation" x="-170" y="-42"/>
         </scene>
         <!--Starting View-->
         <scene sceneID="Wup-Ab-Dl3">
@@ -1097,7 +1097,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1b-CM-PGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="632" y="583"/>
+            <point key="canvasLocation" x="876" y="581"/>
         </scene>
         <!--Settings-->
         <scene sceneID="WTk-bh-Q5A">
@@ -1116,7 +1116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUV-ab-78x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211" y="583"/>
+            <point key="canvasLocation" x="1455" y="581"/>
         </scene>
     </scenes>
     <resources>
@@ -1132,7 +1132,7 @@
         <image name="TimePopup" width="40" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1m2-fF-aLg"/>
+        <segue reference="vS5-PK-tg0"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

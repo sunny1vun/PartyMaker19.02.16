@@ -29,8 +29,9 @@
 
     NSLog(@"TableView was first");
     self.context = [MyDelegate managedObjectContext];
-    //[self getAllPartyRequest];
-    [self getPartyFromCoreData];
+    [self getAllPartyRequest];
+#warning connection for coreData
+//    [self getPartyFromCoreData];
   
 //    
 //    SUNParty *sunPartyItem = [NSEntityDescription
@@ -80,38 +81,45 @@
     NSNumber *userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
     [[SUNPartyMakerSDK sharedInstance] getPartyOfUserWithId:userID.stringValue callback:^(NSDictionary *response, NSError *error) {
         NSLog(@"%@",response);
-        if ([[response objectForKey:@"statusCode"] isEqual:@(200)] ) {
-            NSMutableArray *parsedArray = [[NSMutableArray alloc] init];
-            
-            for (NSDictionary *dictItem in [response objectForKey:@"response"]) {
+        if ([[response objectForKey:@"statusCode"] isEqual:@(200)] ){
+            if(![[response objectForKey:@"response"] isEqual:[NSNull null]]){
+                NSMutableArray *parsedArray = [[NSMutableArray alloc] init];
+              
                 
-                SUNParty *sunPartyItem = [NSEntityDescription
-                                                   insertNewObjectForEntityForName:@"SUNParty"
-                                                   inManagedObjectContext:self.context];
-                 sunPartyItem = [sunPartyItem makePartyObjectWith:dictItem];
+                
+                for (NSDictionary *dictItem in [response objectForKey:@"response"]) {
+                    
+                    SUNParty *sunPartyItem = [NSEntityDescription
+                                                       insertNewObjectForEntityForName:@"SUNParty"
+                                                       inManagedObjectContext:self.context];
+                     sunPartyItem = [sunPartyItem makePartyObjectWith:dictItem];
 
-                [parsedArray addObject:sunPartyItem];
-            }
-           // self.usersPartyArray = [parsedArray copy];
-            dispatch_async(dispatch_get_main_queue(),^{
-                
-                NSError *error;
-                if (![self.context save:&error]) {
-                    NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+                    [parsedArray addObject:sunPartyItem];
                 }
-                if (!error) {
-                    self.dataArray = [parsedArray copy];
-                    [self.partyTableView reloadData];
+               // self.usersPartyArray = [parsedArray copy];
+                dispatch_async(dispatch_get_main_queue(),^{
+                    
+                    NSError *error;
+                    if (![self.context save:&error]) {
+                        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+                    }
+                    if (!error) {
+                        self.dataArray = [parsedArray copy];
+                        [self.partyTableView reloadData];
 
-                }
+                    }
+                    
+                    });
+
                 
-                });
-
-            
-        } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@",error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
-        }
+            } else {
+                if( error != nil ){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@",error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+                }else {
+                    NSLog(@"No parties for now");
+                }
+            }}
     }];
 
     
@@ -191,16 +199,15 @@
     
     //SUNTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[SUNTableViewCell reuseIdentifier] forIndexPath:indexPath];
     
-    SUNTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"partyCell"];
+    SUNTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[SUNTableViewCell reuseIdentifier]];
     if(cell == nil){
         cell = [[SUNTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:[SUNTableViewCell reuseIdentifier]];
     }
     
     SUNParty *savedParty = [self.dataArray objectAtIndex:indexPath.row];//[NSKeyedUnarchiver
     
-    NSString *formatedDateWithTime = @"31:20:22232";
     NSString *imageName ;
-  //  formatedDateWithTime = [NSDate formateToStringStartTime:[savedParty startTime] endTime:[savedParty endTime]];
+    NSString *formatedDateWithTime = [NSDate formateToStringStartTime:@([savedParty startTime]) endTime:@([savedParty endTime])];
     imageName = [[NSString alloc] initWithFormat:@"PartyLogo_Small_%lld", savedParty.logo];
 
     [cell configureWithName:savedParty.partyName dateAndTimeOfParty:formatedDateWithTime logo:[UIImage imageNamed: imageName]];
@@ -236,7 +243,16 @@
         
         self.indexOfSelectedCell = [self.partyTableView indexPathForSelectedRow].row;
         
+        
+        
+        
+        
+        
+        
         SUNSaver *selectedParty = self.dataArray[self.indexOfSelectedCell];
+        
+//        SUNParty *selectedParty = self.dataArray[self.indexOfSelectedCell];
+
         partyInfoVC.selectedParty = selectedParty;
         partyInfoVC.indexOfSelectedParty = self.indexOfSelectedCell;
         
