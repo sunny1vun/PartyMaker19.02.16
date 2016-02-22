@@ -64,14 +64,33 @@
 }
 #pragma mark - Custom Methods CoreData
 -(void) getPartyFromCoreData {
+#warning how to make sorted fetchRequest, it works
     
-    NSError *error;
+    NSManagedObjectContext *context = self.context;
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"SUNParty" inManagedObjectContext:self.context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SUNParty"
+                                              inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     
-    NSArray *fetchedObjects = [self.context executeFetchRequest:fetchRequest error:&error];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"partyId"
+                                                                   ascending:YES];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        // Handle the error.
+        NSLog(@"Something with sorting went wrong - %@", error);
+    }else{
+//        NSLog(@"%@",fetchedObjects[0]);
+    }
+
+    
+#warning working before sort
+
     
     for (SUNParty *info in fetchedObjects) {
         [self.usersPartyArray addObject:info];
@@ -83,6 +102,17 @@
     }
     self.usersPartyArray = nil;
     NSLog(@"%lu", (unsigned long)self.dataArray.count);
+    
+#warning delete here if not works
+    
+    //    NSError *error;
+    //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    //    NSEntityDescription *entity = [NSEntityDescription
+    //                                   entityForName:@"SUNParty" inManagedObjectContext:self.context];
+    //    [fetchRequest setEntity:entity];
+    //
+    //    NSArray *fetchedObjects = [self.context executeFetchRequest:fetchRequest error:&error];
+    
 }
 
 #pragma mark - Custom Methods Networking
@@ -255,6 +285,16 @@
         self.indexOfSelectedCell = [self.partyTableView indexPathForSelectedRow].row;
         
         SUNParty *selectedParty = self.dataArray[self.indexOfSelectedCell];
+        
+        
+        
+//        
+//        NSManagedObjectID *objectIdSelectedParty = [((NSManagedObject *)self.dataArray[self.indexOfSelectedCell]).objectID copy];
+//        selectedParty.objectID = objectIdSelectedParty;
+//        
+        
+        
+        
         NSLog(@"id of selectedParty = %lld", selectedParty.partyId);
         partyInfoVC.selectedParty = selectedParty;
         partyInfoVC.indexOfSelectedParty = self.indexOfSelectedCell;

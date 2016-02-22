@@ -552,24 +552,6 @@
         
     }else{
         
-        //old party model for plist
-//        SUNDataStore *party = [[SUNDataStore alloc]  initWithName:self.textField.text  date:self.dateIsChosen                                                sliderTop: self.sliderTop    sliderBot: self.sliderBot  description: self.textView.text    pageControl:self.pageControl];
-        
-        
-        //new party Model for coreData and Network
-    
-        
-        //preparing startTime and endTime in creating mode
-        
-        //it need to be filled in changingMode
-//        [formatedString appendString:self.dateIsChosen];
-    
-//        CGFloat value = self.sliderTop.value;
-//        CGFloat hours = (int)value/60;
-//        CGFloat minutes = (value - hours * 60);
-//        
-//        [formatedString appendFormat:@"  %02d:%02d:00", (int)hours, (int)minutes];
-//        self.dateIsChosen = formatedString;
         //получает тут ноль
         
         NSString *timeInHoursAndMinutes = [self textFromValueOfSlider:self.sliderTop];
@@ -616,25 +598,52 @@
         
         
         NSNumber * userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-
-        //in editing mode i need to fill party by self.partyToChange
-//        SUNSaver *party = [[SUNSaver sharedInstance] initWithCreatorId: userId startTime:startTime endTime:endTime logo:[[NSNumber alloc] initWithInteger:self.pageControl.currentPage] partyId:numberJustForUsage latitude:numberJustForUsage longitude:numberJustForUsage description:self.textView.text partyName:self.textField.text];
         
         NSDictionary *dictionaryOfParty;
         SUNParty *party;
-//        BOOL (^makeChangesInCoreData)(parameterTypes);// = ^BOOL(parameters) {...};
 
-//        NSNumber *partyIdIfExist;
+        
         if ( self.partyWasEdited ) {
 #warning here is editing mode is active
-
-           party = self.partyToChange;
-//            partyIdIfExist = @(self.partyToChange.partyId);
-           
-        
-        }else{
-//#warning latitude and longitude are taking wrong values here
             
+//           party = self.partyToChange;
+            dictionaryOfParty =  @{@"name": self.textField.text,
+                                   @"start_time": startTime,
+                                   @"end_time": endTime,
+                                   @"logo_id": @(self.pageControl.currentPage),
+                                   @"comment": self.textView.text,
+                                   @"creator_id": [userId stringValue],
+                                   @"latitude": startTime,
+                                   @"longitude": endTime,
+                                   @"party_id": @(self.partyToChange.partyId)
+                                   };
+            
+            
+            SUNParty *sunPartyItem = [NSEntityDescription
+                                      insertNewObjectForEntityForName:@"SUNParty"
+                                      inManagedObjectContext:self.backgroundContext];
+            
+            
+            party = [sunPartyItem makePartyObjectWith:dictionaryOfParty];
+            NSError *error;
+            NSManagedObject *objectPartyToDelete = [self.backgroundContext existingObjectWithID:self.partyToChange.objectID error:&error];
+            
+            [self.backgroundContext deleteObject:objectPartyToDelete];
+            [self.backgroundContext insertObject:party];
+            
+            party.hasChanged = YES;
+            if( party.hasChanged ){
+                NSLog(@"was created so has Changes %d", party.hasChanged);
+                NSError *localError;
+                if(![self.backgroundContext save:&localError]){
+                    NSLog(@"local error from backgroundContext %@", localError);
+                }
+            }
+//            
+
+    
+        }else{
+#warning creating mode is active
             
             
 //            NSString *newId = localResponse[@"id"];
@@ -658,7 +667,7 @@
             party = [sunPartyItem makePartyObjectWith:dictionaryOfParty];
             party.hasChanged = YES;
             if( party.hasChanged ){
-                NSLog(@"has Changes %d", party.hasChanged);
+                NSLog(@"was created so has Changes %d", party.hasChanged);
                 NSError *localError;
                 if(![self.backgroundContext save:&localError]){
                     NSLog(@"local error from backgroundContext %@", localError);
@@ -702,20 +711,10 @@
              }else{
                  NSLog(@"bad response from server");
              }
-             [self.navigationController popToRootViewControllerAnimated:YES];
              [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+             [self.navigationController popToRootViewControllerAnimated:YES];
          });
         }];
-        
-
-        
-        
-        
-        
-        
-        
-        
-        
         
     }
     

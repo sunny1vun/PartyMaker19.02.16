@@ -6,6 +6,7 @@
 //  Copyright © 2016 TonyStar. All rights reserved.
 //
 
+#import "SUNAppDelegate.h"
 #import "SUNPartyInfoVC.h"
 #import "SUNMakingPartyByxibVC.h"
 #import "SUNDataStore.h"
@@ -34,6 +35,8 @@
 @implementation SUNPartyInfoVC
 
 -(void)viewWillAppear:(BOOL)animated{
+    self.context = [MyDelegate backgroundThreadContext];
+
     [super viewWillAppear:animated];
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -79,11 +82,42 @@
 
 - (IBAction)deleteParty:(id)sender {
     
+    
+    
+    
+    NSManagedObjectContext *context = self.context;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SUNParty"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"partyId"
+                                                                   ascending:YES];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        // Handle the error.
+        NSLog(@"Something with sorting went wrong - %@", error);
+    }
+    
+    [context deleteObject:fetchedObjects[self.indexOfSelectedParty]];
+    
+    if(![context save:&error]){
+        NSLog(@"%@",error);
+    }
+    
+    
+    
+    
     self.deleteParty.enabled = NO;
-    NSMutableArray *parties = [SUNDataStore readFromPlist];
-    [parties removeObjectAtIndex:self.indexOfSelectedParty];
-    NSLog(@"data of party was deleted from parties");
-    [SUNDataStore saveToPlist:parties];
+//    NSMutableArray *parties = [SUNDataStore readFromPlist];
+//    [parties removeObjectAtIndex:self.indexOfSelectedParty];
+//    NSLog(@"data of party was deleted from parties");
+//    [SUNDataStore saveToPlist:parties];
     [self.navigationController popToRootViewControllerAnimated:YES];
     
 }

@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype) makePartyObjectWith:(NSDictionary *) parameters;
 
 @property (nonatomic) BOOL hasChanged;
+@property (nonatomic) NSManagedObjectID *objectID;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *backgroundThreadContext;
 
 @end

@@ -14,6 +14,7 @@
 
 @synthesize backgroundThreadContext= _backgroundThreadContext;
 @synthesize hasChanged = _hasChanged;
+@synthesize objectID = _objectID;
 
 -(NSManagedObjectContext *)backgroundThreadContext{
 
@@ -34,6 +35,10 @@
     return _hasChanged;
 }
 
+-(NSManagedObjectID *)objectID{
+    
+    return _objectID;
+}
 - (instancetype) makePartyObjectWith:(NSDictionary *) parameters{
     
     

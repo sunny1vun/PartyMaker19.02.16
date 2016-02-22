@@ -16,4 +16,7 @@
 @property (nonatomic, strong) SUNParty  *selectedParty;
 @property (nonatomic) NSInteger indexOfSelectedParty;
 
+@property (strong, nonatomic) NSManagedObjectContext *context;
+
+
 @end
